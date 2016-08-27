@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 public class Home extends AppCompatActivity {
 
+    //Test add
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
