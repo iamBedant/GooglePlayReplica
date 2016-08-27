@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PlayMusicReplica</string>
+    <string name="container_transition_name">image_cover</string>
+    <string name="image_cover_transition_name">image_cover_transition_name</string>
 </resources>

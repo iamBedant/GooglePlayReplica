@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#EF6C00</color>
+    <color name="colorPrimaryDark">#C45900</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorSecondText">#5E5E5E</color>
+    <color name="colorBackground">#EEEEEE</color>
+    <color name="album_image_photo_tint">#2f505050</color>
 </resources>
