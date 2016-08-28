@@ -27,29 +27,4 @@ public interface NetworkService {
     @GET("music")
     Observable<List<Song>> getSongs();
 
-    class Factory {
-
-        public static NetworkService makeNetworkService(Context context) {
-            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-            logging.setLevel(BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY
-                    : HttpLoggingInterceptor.Level.NONE);
-
-            OkHttpClient okHttpClient = new OkHttpClient.Builder()
-//                    .addInterceptor(new UnauthorisedInterceptor(context))
-                    .addInterceptor(logging)
-                    .build();
-
-            Gson gson = new GsonBuilder()
-                    .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-                    .create();
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(NetworkService.ENDPOINT)
-                    .client(okHttpClient)
-                    .addConverterFactory(GsonConverterFactory.create(gson))
-                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                    .build();
-            return retrofit.create(NetworkService.class);
-        }
-
-    }
 }

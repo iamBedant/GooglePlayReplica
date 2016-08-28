@@ -1,10 +1,13 @@
 
 package iambedant.com.playmusicreplica.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Image {
+public class Image implements Parcelable {
 
     @SerializedName("#text")
     @Expose
@@ -14,7 +17,7 @@ public class Image {
     private String size;
 
     /**
-     * 
+     *
      * @return
      *     The text
      */
@@ -23,7 +26,7 @@ public class Image {
     }
 
     /**
-     * 
+     *
      * @param text
      *     The #text
      */
@@ -32,7 +35,7 @@ public class Image {
     }
 
     /**
-     * 
+     *
      * @return
      *     The size
      */
@@ -41,7 +44,7 @@ public class Image {
     }
 
     /**
-     * 
+     *
      * @param size
      *     The size
      */
@@ -49,4 +52,33 @@ public class Image {
         this.size = size;
     }
 
+
+    protected Image(Parcel in) {
+        text = in.readString();
+        size = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(text);
+        dest.writeString(size);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Image> CREATOR = new Parcelable.Creator<Image>() {
+        @Override
+        public Image createFromParcel(Parcel in) {
+            return new Image(in);
+        }
+
+        @Override
+        public Image[] newArray(int size) {
+            return new Image[size];
+        }
+    };
 }
